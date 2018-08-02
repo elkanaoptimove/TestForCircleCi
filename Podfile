@@ -5,6 +5,6 @@ target 'TestForCircleCi' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'OptimoveSDK', :path => '../repos/Mobile-Infra/iOS/OptimoveSDK'
+  pod 'OptimoveSDK', '1.2.0'
 
 end
