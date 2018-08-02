@@ -22,8 +22,7 @@ class TestForCircleCiTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        Optimove.sharedInstance.configure(for: OptimoveTenantInfo(url: "https://sdk-cdn.optimove.net", token: "internal-token", version: "dev.tid.107.all", hasFirebase: false, useFirebaseMessaging: false))
     }
     
     
