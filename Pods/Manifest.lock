@@ -4,6 +4,12 @@ PODS:
     - FirebaseAnalytics (= 5.0.1)
   - Firebase/CoreOnly (5.4.1):
     - FirebaseCore (= 5.0.6)
+  - Firebase/DynamicLinks (5.4.1):
+    - Firebase/Core
+    - FirebaseDynamicLinks (= 3.0.1)
+  - Firebase/Messaging (5.4.1):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.0.3)
   - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
@@ -35,10 +41,10 @@ PODS:
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - OptimoveSDK (1.2.0):
     - Firebase/Core (~> 5.4.0)
-    - FirebaseDynamicLinks (~> 3.0.1)
-    - FirebaseMessaging (~> 3.0.3)
+    - Firebase/DynamicLinks
+    - Firebase/Messaging
     - OptiTrackCore
-    - XCGLogger
+    - XCGLogger (~> 6.0.4)
   - OptiTrackCore (0.2.2)
   - Protobuf (3.6.0)
   - XCGLogger (6.0.4):
@@ -47,7 +53,7 @@ PODS:
     - ObjcExceptionBridging
 
 DEPENDENCIES:
-  - OptimoveSDK (from `../repos/Mobile-Infra/iOS/OptimoveSDK`)
+  - OptimoveSDK (= 1.2.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -60,13 +66,10 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - nanopb
     - ObjcExceptionBridging
+    - OptimoveSDK
     - OptiTrackCore
     - Protobuf
     - XCGLogger
-
-EXTERNAL SOURCES:
-  OptimoveSDK:
-    :path: "../repos/Mobile-Infra/iOS/OptimoveSDK"
 
 SPEC CHECKSUMS:
   Firebase: 355bd535bfdacaa82a7fe8d9784115edefd6fc03
@@ -78,11 +81,11 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  OptimoveSDK: aa43f6fc1a05f928c747793ed8c85bd651c58a55
+  OptimoveSDK: d3b12adb6aea1580ba2e2eb68d061287dae099e6
   OptiTrackCore: 2004198a4088e3d0a8b2bac534f5d3d333777795
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   XCGLogger: 4fc1bc0bdd5828cb8dc8da7a843536cda1bea8f3
 
-PODFILE CHECKSUM: 5e07985d37c6c3ac67cfcec9b4ddcc47ecd4fe98
+PODFILE CHECKSUM: 08fe9f361b267be4bd133471344633307e52b5d6
 
 COCOAPODS: 1.5.3
