@@ -6,3 +6,10 @@ target 'TestForCircleCi' do
   pod 'OptimoveSDK', '1.2.0'
 
 end
+
+target 'TestForCircleCiTests' do
+    use_frameworks!
+    
+    pod 'OptimoveSDK', '1.2.0'
+    
+end
