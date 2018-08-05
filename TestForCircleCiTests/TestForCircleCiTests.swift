@@ -10,10 +10,15 @@ import XCTest
 import OptimoveSDK
 
 class TestForCircleCiTests: XCTestCase {
+    var exp : XCTestExpectation!
+    var tester: SdkStateTester!
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        exp = expectation(description: "sdk ready")
+        tester = SdkStateTester {
+            self.exp.fulfill()
+        }
     }
     
     override func tearDown() {
@@ -22,9 +27,26 @@ class TestForCircleCiTests: XCTestCase {
     }
     
     func testExample() {
+       
+        
         Optimove.sharedInstance.configure(for: OptimoveTenantInfo(url: "https://sdk-cdn.optimove.net", token: "internal-token", version: "dev.tid.107.all", hasFirebase: false, useFirebaseMessaging: false))
+        Optimove.sharedInstance.registerSuccessStateListener(tester)
+        wait(for: [exp], timeout: 5.0)
     }
     
+    
+    
+}
+
+
+class SdkStateTester: OptimoveSuccessStateListener {
+    let callback: () -> ()
+    init(_ callback:@escaping () -> ()) {
+        self.callback = callback
+    }
+    func optimove(_ optimove: Optimove, didBecomeActiveWithMissingPermissions missingPermissions: [OptimoveDeviceRequirement]) {
+        self.callback()
+    }
     
     
 }
