@@ -9,11 +9,14 @@
 import Foundation
 
 class Fastfile: LaneFile {
+    func beforeAll() {
+        setupCircleCi()
+    }
 	func ciLane() {
         desc("Build the app")
+        runTests(workspace: "TestForCircleCi", devices: ["iPhone 6s", "iPad Air"], scheme: "TestForCircleCi")
 		// add actions here: https://docs.fastlane.tools/actions
-        syncCodeSigning(gitUrl: "https://github.com/elkanaoptimove/TestForCircleCi.git", appIdentifier: ["com.optimove.sdk.TestForCircleCi"], username: "optimove.develop.mobile@gmail.com")
-        buildIosApp(scheme: "TestForCircleCi")
-        
+//        syncCodeSigning(gitUrl: "https://github.com/elkanaoptimove/TestForCircleCi.git", appIdentifier: ["com.optimove.sdk.TestForCircleCi"], username: "optimove.develop.mobile@gmail.com")
+//        buildIosApp(scheme: "TestForCircleCi")
 	}
 }
