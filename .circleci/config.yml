@@ -16,7 +16,6 @@ jobs:
           command: xcrun instruments -w "iPhone 8 (11.3) [" || true
       - checkout
 
-      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
       - restore_cache:
           keys:
             - v1-dep-{{ .Branch }}-
