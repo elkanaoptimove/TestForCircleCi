@@ -16,9 +16,9 @@ jobs:
           command: xcrun instruments -w "iPhone 8 (11.3) [" || true
       - checkout
 
-      # - run:
-      #     name: Install Gems
-      #     command: bundle install
+      - run:
+          name: Install Gems
+          command: bundle install
       - run:
           name: Build and run tests
           command: bundle exec fastlane ci
