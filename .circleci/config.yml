@@ -19,9 +19,9 @@ jobs:
       # - run:
       #     name: Install Gems
       #     command: bundle install
-      # - run:
-      #     name: Build and run tests
-      #     command: bundle exec fastlane ci
+      - run:
+          name: Build and run tests
+          command: bundle exec fastlane ci
       - store_test_results:
           path: /tmp/circleci-test-results
       - store_artifacts:
