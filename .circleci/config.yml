@@ -16,6 +16,23 @@ jobs:
           command: xcrun instruments -w "iPhone 8 (11.3) [" || true
       - checkout
 
+      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+      - restore_cache:
+          keys:
+            - v1-dep-{{ .Branch }}-
+            - v1-dep-development-
+            - v1-dep-
+      - run: 
+          name: Fetch CocoaPods Specs
+          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      - run:
+          name: Install CocoaPods
+          command: pod install --verbose
+      - save_cache:
+          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          paths:
+            - Pods
+
       - run:
           name: Install Gems
           command: sudo bundle install
