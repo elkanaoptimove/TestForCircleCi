@@ -9,7 +9,7 @@
 import Foundation
 
 class Fastfile: LaneFile {
-	func customLane() {
+	func ciLane() {
         desc("Build the app")
 		// add actions here: https://docs.fastlane.tools/actions
         buildIosApp(scheme: "TestForCircleCi")
